@@ -17,12 +17,18 @@ if(isset($_GET['type']) && $_GET['type']!=''){
 	
 	if($type=='delete'){
 		$id=get_safe_value($con,$_GET['id']);
-		
+
+		$sql="SELECT `categories_id` FROM `product` WHERE `id` = '$id'";
+		$res_p=mysqli_query($con,$sql);
+
+		while($row_p=mysqli_fetch_assoc($res_p)){
+			mysqli_query($con,"UPDATE `categories` SET `products` = `products`- 1 WHERE `id` = '$row_p[categories_id]'");
+		}
 		
 		$delete_sql="delete from product where id='$id'";
 		mysqli_query($con,$delete_sql);
 
-		// mysqli_query($con,"UPDATE `categories` SET `products` = `products`- 1 WHERE `id` = '$categories_id'");
+		
 	}
 }
 

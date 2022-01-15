@@ -94,6 +94,9 @@ if(isset($_POST['submit'])){
 			$image=rand(111111111,999999999).'_'.$_FILES['image']['name'];
 			move_uploaded_file($_FILES['image']['tmp_name'],PRODUCT_IMAGE_SERVER_PATH.$image);
 			mysqli_query($con,"insert into product(categories_id,name,mrp,price,ex_d_t,qty,short_desc,description,meta_title,meta_desc,meta_keyword,status,image) values('$categories_id','$name','$mrp','$price','$ex_d_t','$qty','$short_desc','$description','$meta_title','$meta_desc','$meta_keyword',1,'$image')");
+
+			// Adding product count to categories
+			mysqli_query($con,"UPDATE `categories` SET `products` = `products`+ 1 WHERE `id` = '$categories_id'");
 		}
 		header('location:product.php');
 		die();

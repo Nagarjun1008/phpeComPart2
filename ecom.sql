@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2022 at 10:27 AM
+-- Generation Time: Jan 15, 2022 at 02:38 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -115,13 +115,13 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `categories_id`, `name`, `mrp`, `price`, `ex_d_t`, `qty`, `image`, `short_desc`, `description`, `meta_title`, `meta_desc`, `meta_keyword`, `status`) VALUES
-(1, 1, 'Java', 2, 3, '2022-01-16 12:00:00', 4, '287733289_3.jpg', '5', '6', '7', '', '9', 1),
-(4, 1, 'Python', 100, 99, '0000-00-00 00:00:00', 12, '119845920_2.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pellentesque ipsum sed pharetra pellentesque. Nulla tristique, dolor et viverra vestibulum, urna dui finibus massa, vel dapibus ligula sapien eu velit. Sed sit amet semper quam. Nam convallis nunc eget quam porta, nec sodales ligula rutrum. Maecenas volutpat scelerisque facilisis. Maecenas consequat erat vitae mauris iaculis, sit amet bibendum nisl scelerisque. Fusce pellentesque laoreet est, eu porta nunc finibus id. Fusce egestas ante ac augue facilisis, vitae volutpat nunc commodo. Proin consectetur quam at venenatis eleifend. Duis vel libero luctus, iaculis libero congue, molestie tortor.', 'test', '', 'test', 1),
-(5, 2, 'C++', 100, 98, '0000-00-00 00:00:00', 8, '1.jpg', 'test', 'test', 'test', '', 'test', 1),
-(6, 3, 'PHP', 120, 120, '0000-00-00 00:00:00', 2, '951812380_3.jpg', 'k', 'k', 'k', '', 'k', 1),
-(7, 4, 'JS', 0, 0, '0000-00-00 00:00:00', 1, '909739718_1.jpg', 'y', 'y', 'y', '', 'y', 1),
-(8, 1, 'Django', 120, 111, '0000-00-00 00:00:00', 1, '708824809_379232.jpg', 'h', 'h', 'h', '', 'h', 1),
-(9, 4, 'MASAI', 122, 123, '0000-00-00 00:00:00', 1, '287733289_3.jpg', 'k', 'k', 'k', '', 'k', 1);
+(1, 1, 'Java', 100, 100, '2022-02-01 00:00:00', 1, '435024375_1.jpg', '', '', '', '', '', 1),
+(2, 1, 'Python', 120, 129, '2022-10-20 00:00:00', 1, '737058274_1.jpg', '', '', '', '', '', 1),
+(3, 2, 'C++', 11, 12, '2022-01-20 18:14:18', 1, '769137798_8.jpg', '', '', '', '', '', 1),
+(4, 3, 'PHP', 11, 12, '2021-10-10 00:00:00', 1, '603331736_1.jpg', '', '', '', '', '', 0),
+(5, 4, 'JS', 11, 12, '2022-02-15 00:00:00', 1, '935853313_8.jpg', '', '', '', '', '', 1),
+(6, 1, 'Django', 123, 122, '2022-06-01 00:00:00', 1, '812764258_1.jpg', '', '', '', '', '', 1),
+(7, 4, 'MASAI', 1200, 1199, '2022-02-01 00:00:00', 1, '845865393_8.jpg', '', '', '', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -205,7 +205,7 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`

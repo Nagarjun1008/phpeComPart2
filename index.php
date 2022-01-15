@@ -81,7 +81,7 @@
                                 foreach($get_product as $list2){
                                     ?>
                                         <!-- Start Single Category -->
-                                        <div style="background-color: #fff;background-clip: border-box;border: 1px solid rgba(0, 0, 0, .125);border-radius: .25rem;margin: 0 10px;" class="card_p col-md-4 col-lg-3 col-sm-4 col-xs-12">
+                                        <div class="card_p col-md-4 col-lg-3 col-sm-4 col-xs-12">
                                             <div class="category">
                                                 <div class="ht__cat__thumb">
                                                     <a href="product.php?id=<?php echo $list2['id']?>">

@@ -94,7 +94,7 @@ if(isset($_POST['submit'])){
 			move_uploaded_file($_FILES['image']['tmp_name'],PRODUCT_IMAGE_SERVER_PATH.$image);
 			mysqli_query($con,"insert into product(categories_id,name,mrp,price,qty,short_desc,description,meta_title,meta_desc,meta_keyword,status,image) values('$categories_id','$name','$mrp','$price','$qty','$short_desc','$description','$meta_title','$meta_desc','$meta_keyword',1,'$image')");
 
-			mysqli_query($con,"UPDATE `categories` SET `products` = `products` + 1 WHERE `id` = '$categories_id'");
+			// mysqli_query($con,"UPDATE `categories` SET `products` = `products` + 1 WHERE `id` = '$categories_id'");
 		}
 		header('location:product.php');
 		die();

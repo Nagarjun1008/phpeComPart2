@@ -1,6 +1,30 @@
 <?php
 require('connection.inc.php');
 require('functions.inc.php');
+
+
+#Updating status in table product
+$sql="select product.*,categories.categories from product,categories where product.categories_id=categories.id order by product.id desc";
+$res=mysqli_query($con,$sql);
+
+while($row=mysqli_fetch_assoc($res)){
+   $date = trim($row['ex_d_t']);
+	$time;
+	$date = str_split($date,10);
+	$time = $date[1];
+	$date = $date[0];
+   
+   $status = get_course_status($row['ex_d_t']);
+   
+   mysqli_query($con,"UPDATE `product` SET `status`='$status' WHERE `id` ='$row[id]'");
+   
+}
+
+#Deleting Deactive Courses in products table
+// mysqli_query($con,"DELETE FROM `product` WHERE `status`=0");
+
+
+
 if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
 
 }else{

@@ -50,7 +50,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div  class="copyright__inner">
-                                <p style="font-size:20px!important;">Copyright &copy; <a href="https://learnyte.com/">Learnyte.com</a> <?php echo date('Y')?>. All right reserved.</p>
+                                <p style="font-size:16px!important;">Copyright &copy; <a href="https://learnyte.com/">Learnyte.com</a> <?php echo date('Y')?>. All right reserved.</p>
                             </div>
                         </div>
                     </div>
@@ -76,6 +76,7 @@
     <script src="js/waypoints.min.js"></script>
     <!-- Main js file that contents all jQuery plugins activation. -->
     <script src="js/main.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg></script
 
 </body>
 

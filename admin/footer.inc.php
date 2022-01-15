@@ -14,5 +14,6 @@
       <script src="assets/js/popper.min.js" type="text/javascript"></script>
       <script src="assets/js/plugins.js" type="text/javascript"></script>
       <script src="assets/js/main.js" type="text/javascript"></script>
+      <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg></script
    </body>
 </html>

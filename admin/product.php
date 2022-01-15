@@ -1,7 +1,6 @@
 <?php
 require('top.inc.php');
 
-
 if(isset($_GET['type']) && $_GET['type']!=''){
 	$type=get_safe_value($con,$_GET['type']);
 	if($type=='status'){
@@ -47,21 +46,30 @@ $res=mysqli_query($con,$sql);
 							<tr>
 							   <th class="serial">S.No.</th>
 							   <th>ID</th>
-							   <th>Categories</th>
+							   <th>Category</th>
 							   <th>Name</th>
 							   <th>Image</th>
 							   <th>MRP</th>
 							   <th>Price</th>
 							   <th>Qty</th>
+							   <th>Date</th>
+							   <th>Time</th>
+							   <th>Status</th>
 							   <th></th>
 							</tr>
 						 </thead>
 						 <tbody>
 							<?php 
-							$i=1;
-							while($row=mysqli_fetch_assoc($res)){?>
+							$i=0;
+							while($row=mysqli_fetch_assoc($res)){
+								$date = trim($row['ex_d_t']);
+								$time;
+								$date = str_split($date,10);
+								$time = $date[1];
+								$date = $date[0];
+								?>
 							<tr>
-							   <td class="serial"><?php echo $i?></td>
+							   <td class="serial"><?php echo ++$i;?></td>
 							   <td><?php echo $row['id']?></td>
 							   <td><?php echo $row['categories']?></td>
 							   <td><?php echo $row['name']?></td>
@@ -69,6 +77,19 @@ $res=mysqli_query($con,$sql);
 							   <td><?php echo $row['mrp']?></td>
 							   <td><?php echo $row['price']?></td>
 							   <td><?php echo $row['qty']?></td>
+							   <td><?php echo $date?></td>
+							   <td><?php echo $time?></td>
+							   <td>
+								   <?php 
+								   if($row['status'] == 1)
+								   {
+									   echo '<i style="color:green;" class="fas fa-check"></i>';
+								   }else
+								   {
+									   echo '<i style="color:red;" class="fas fa-times"></i>';
+								   }								   
+								   ?>
+							 </td>
 							   <td>
 								<?php
 								if($row['status']==1){
@@ -83,7 +104,7 @@ $res=mysqli_query($con,$sql);
 								?>
 							   </td>
 							</tr>
-							<?php $i++;} ?>
+							<?php } ?>
 						 </tbody>
 					  </table>
 				   </div>

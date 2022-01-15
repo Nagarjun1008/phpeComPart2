@@ -91,7 +91,7 @@ if(isset($_GET['id'])){
             </div>
             <!-- End Product Details Top -->
         </section>
-        <!-- End Product Details Area 
+        <!-- End Product Details Area -->
 		<!-- Start Product Description -->
         <section class="htc__produc__decription bg__white">
             <div class="container">

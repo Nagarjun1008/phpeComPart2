@@ -4,6 +4,7 @@ $categories_id='';
 $name='';
 $mrp='';
 $price='';
+$ex_d_t='';
 $qty='';
 $image='';
 $short_desc	='';
@@ -17,8 +18,6 @@ $image_required='required';
 if(isset($_GET['id']) && $_GET['id']!=''){
 	$image_required='';
 	$id=get_safe_value($con,$_GET['id']);
-	print_r($id);
-	die;
 	$res=mysqli_query($con,"select * from product where id='$id'");
 	$check=mysqli_num_rows($res);
 	if($check>0){
@@ -27,6 +26,7 @@ if(isset($_GET['id']) && $_GET['id']!=''){
 		$name=$row['name'];
 		$mrp=$row['mrp'];
 		$price=$row['price'];
+		$ex_d_t=$row['ex_d_t'];
 		$qty=$row['qty'];
 		$short_desc=$row['short_desc'];
 		$description=$row['description'];
@@ -44,6 +44,7 @@ if(isset($_POST['submit'])){
 	$name=get_safe_value($con,$_POST['name']);
 	$mrp=get_safe_value($con,$_POST['mrp']);
 	$price=get_safe_value($con,$_POST['price']);
+	$ex_d_t=get_safe_value($con,$_POST['ex_d_t']);
 	$qty=get_safe_value($con,$_POST['qty']);
 	$short_desc=get_safe_value($con,$_POST['short_desc']);
 	$description=get_safe_value($con,$_POST['description']);
@@ -84,17 +85,15 @@ if(isset($_POST['submit'])){
 				$image=rand(111111111,999999999).'_'.$_FILES['image']['name'];
 				
 				move_uploaded_file($_FILES['image']['tmp_name'],PRODUCT_IMAGE_SERVER_PATH.$image);
-				$update_sql="update product set categories_id='$categories_id',name='$name',mrp='$mrp',price='$price',qty='$qty',short_desc='$short_desc',description='$description',meta_title='$meta_title',meta_desc='$meta_desc',meta_keyword='$meta_keyword',image='$image' where id='$id'";
+				$update_sql="update product set categories_id='$categories_id',name='$name',mrp='$mrp',price='$price',ex_d_t='$ex_d_t',qty='$qty',short_desc='$short_desc',description='$description',meta_title='$meta_title',meta_desc='$meta_desc',meta_keyword='$meta_keyword',image='$image' where id='$id'";
 			}else{
-				$update_sql="update product set categories_id='$categories_id',name='$name',mrp='$mrp',price='$price',qty='$qty',short_desc='$short_desc',description='$description',meta_title='$meta_title',meta_desc='$meta_desc',meta_keyword='$meta_keyword' where id='$id'";
+				$update_sql="update product set categories_id='$categories_id',name='$name',mrp='$mrp',price='$price',ex_d_t='$ex_d_t',qty='$qty',short_desc='$short_desc',description='$description',meta_title='$meta_title',meta_desc='$meta_desc',meta_keyword='$meta_keyword' where id='$id'";
 			}
 			mysqli_query($con,$update_sql);
 		}else{
 			$image=rand(111111111,999999999).'_'.$_FILES['image']['name'];
 			move_uploaded_file($_FILES['image']['tmp_name'],PRODUCT_IMAGE_SERVER_PATH.$image);
-			mysqli_query($con,"insert into product(categories_id,name,mrp,price,qty,short_desc,description,meta_title,meta_desc,meta_keyword,status,image) values('$categories_id','$name','$mrp','$price','$qty','$short_desc','$description','$meta_title','$meta_desc','$meta_keyword',1,'$image')");
-
-			// mysqli_query($con,"UPDATE `categories` SET `products` = `products` + 1 WHERE `id` = '$categories_id'");
+			mysqli_query($con,"insert into product(categories_id,name,mrp,price,ex_d_t,qty,short_desc,description,meta_title,meta_desc,meta_keyword,status,image) values('$categories_id','$name','$mrp','$price','$ex_d_t','$qty','$short_desc','$description','$meta_title','$meta_desc','$meta_keyword',1,'$image')");
 		}
 		header('location:product.php');
 		die();
@@ -142,6 +141,11 @@ if(isset($_POST['submit'])){
 								</div>
 								
 								<div class="form-group">
+									<label for="categories" class="form-control-label">Expire Date & Time</label>
+									<input type="text" name="ex_d_t" placeholder="YYYY-MM-DD HH:MM" class="form-control" required value="<?php echo $ex_d_t?>">
+								</div>
+								
+								<div class="form-group">
 									<label for="categories" class=" form-control-label">Qty</label>
 									<input type="text" name="qty" placeholder="Enter qty" class="form-control" required value="<?php echo $qty?>">
 								</div>
@@ -153,12 +157,12 @@ if(isset($_POST['submit'])){
 								
 								<div class="form-group">
 									<label for="categories" class=" form-control-label">Short Description</label>
-									<textarea name="short_desc" placeholder="Enter product short description" class="form-control" required><?php echo $short_desc?></textarea>
+									<textarea name="short_desc" placeholder="Enter product short description" class="form-control"><?php echo $short_desc?></textarea>
 								</div>
 								
 								<div class="form-group">
 									<label for="categories" class=" form-control-label">Description</label>
-									<textarea name="description" placeholder="Enter product description" class="form-control" required><?php echo $description?></textarea>
+									<textarea name="description" placeholder="Enter product description" class="form-control"><?php echo $description?></textarea>
 								</div>
 								
 								<div class="form-group">

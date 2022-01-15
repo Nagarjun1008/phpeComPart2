@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2020 at 07:22 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.0.25
+-- Generation Time: Jan 15, 2022 at 10:27 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -50,18 +49,19 @@ INSERT INTO `admin_users` (`id`, `username`, `password`) VALUES
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
   `categories` varchar(255) NOT NULL,
-  `status` tinyint(4) NOT NULL
+  `status` tinyint(4) NOT NULL,
+  `products` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `categories`, `status`) VALUES
-(2, 'Cat4', 1),
-(3, 'Cat1', 1),
-(5, 'Cat6', 1),
-(7, 'Cat9', 1);
+INSERT INTO `categories` (`id`, `categories`, `status`, `products`) VALUES
+(1, 'Courses', 1, 0),
+(2, 'Free Bootcamps', 1, 0),
+(3, 'No Upfront Fee', 1, 0),
+(4, 'Off Campus Placements', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -99,6 +99,7 @@ CREATE TABLE `product` (
   `name` varchar(255) NOT NULL,
   `mrp` float NOT NULL,
   `price` float NOT NULL,
+  `ex_d_t` datetime NOT NULL,
   `qty` int(11) NOT NULL,
   `image` varchar(255) NOT NULL,
   `short_desc` varchar(2000) NOT NULL,
@@ -113,10 +114,14 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `categories_id`, `name`, `mrp`, `price`, `qty`, `image`, `short_desc`, `description`, `meta_title`, `meta_desc`, `meta_keyword`, `status`) VALUES
-(1, 5, 'Product3', 2, 3, 4, '287733289_3.jpg', '5', '6', '7', '', '9', 1),
-(4, 5, 'Product2', 100, 99, 12, '119845920_2.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pellentesque ipsum sed pharetra pellentesque. Nulla tristique, dolor et viverra vestibulum, urna dui finibus massa, vel dapibus ligula sapien eu velit. Sed sit amet semper quam. Nam convallis nunc eget quam porta, nec sodales ligula rutrum. Maecenas volutpat scelerisque facilisis. Maecenas consequat erat vitae mauris iaculis, sit amet bibendum nisl scelerisque. Fusce pellentesque laoreet est, eu porta nunc finibus id. Fusce egestas ante ac augue facilisis, vitae volutpat nunc commodo. Proin consectetur quam at venenatis eleifend. Duis vel libero luctus, iaculis libero congue, molestie tortor.', 'test', '', 'test', 1),
-(5, 7, 'Product 1', 100, 98, 8, '578369140_1 (1).jpg', 'test', 'test', 'test', '', 'test', 1);
+INSERT INTO `product` (`id`, `categories_id`, `name`, `mrp`, `price`, `ex_d_t`, `qty`, `image`, `short_desc`, `description`, `meta_title`, `meta_desc`, `meta_keyword`, `status`) VALUES
+(1, 1, 'Java', 2, 3, '2022-01-16 12:00:00', 4, '287733289_3.jpg', '5', '6', '7', '', '9', 1),
+(4, 1, 'Python', 100, 99, '0000-00-00 00:00:00', 12, '119845920_2.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pellentesque ipsum sed pharetra pellentesque. Nulla tristique, dolor et viverra vestibulum, urna dui finibus massa, vel dapibus ligula sapien eu velit. Sed sit amet semper quam. Nam convallis nunc eget quam porta, nec sodales ligula rutrum. Maecenas volutpat scelerisque facilisis. Maecenas consequat erat vitae mauris iaculis, sit amet bibendum nisl scelerisque. Fusce pellentesque laoreet est, eu porta nunc finibus id. Fusce egestas ante ac augue facilisis, vitae volutpat nunc commodo. Proin consectetur quam at venenatis eleifend. Duis vel libero luctus, iaculis libero congue, molestie tortor.', 'test', '', 'test', 1),
+(5, 2, 'C++', 100, 98, '0000-00-00 00:00:00', 8, '1.jpg', 'test', 'test', 'test', '', 'test', 1),
+(6, 3, 'PHP', 120, 120, '0000-00-00 00:00:00', 2, '951812380_3.jpg', 'k', 'k', 'k', '', 'k', 1),
+(7, 4, 'JS', 0, 0, '0000-00-00 00:00:00', 1, '909739718_1.jpg', 'y', 'y', 'y', '', 'y', 1),
+(8, 1, 'Django', 120, 111, '0000-00-00 00:00:00', 1, '708824809_379232.jpg', 'h', 'h', 'h', '', 'h', 1),
+(9, 4, 'MASAI', 122, 123, '0000-00-00 00:00:00', 1, '287733289_3.jpg', 'k', 'k', 'k', '', 'k', 1);
 
 -- --------------------------------------------------------
 
@@ -188,7 +193,7 @@ ALTER TABLE `admin_users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
@@ -200,7 +205,7 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -1,6 +1,7 @@
 <?php
 require('top.inc.php');
 
+
 if(isset($_GET['type']) && $_GET['type']!=''){
 	$type=get_safe_value($con,$_GET['type']);
 	if($type=='status'){

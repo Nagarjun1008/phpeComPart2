@@ -1,6 +1,14 @@
 <?php
 require('connection.inc.php');
 require('functions.inc.php');
+
+#Updating status in table product
+
+
+#Deleting Deactive Courses in products table
+mysqli_query($con,"DELETE FROM `product` WHERE `status`=0");
+
+
 $msg='';
 if(isset($_POST['submit'])){
 	$username=get_safe_value($con,$_POST['username']);

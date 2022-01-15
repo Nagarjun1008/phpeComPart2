@@ -50,7 +50,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div  class="copyright__inner">
-                                <p style="font-size:20px!important;">Copyright© <a href="https://learnyte.com/">Learnyte.com</a> 2022. All right reserved.</p>
+                                <p style="font-size:20px!important;">Copyright &copy; <a href="https://learnyte.com/">Learnyte.com</a> <?php echo date('Y')?>. All right reserved.</p>
                             </div>
                         </div>
                     </div>

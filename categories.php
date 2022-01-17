@@ -56,34 +56,37 @@ if(isset($_GET['id']) && $_GET['id']!=''){
                                         <option>Sort by newness</option>
                                     </select>
                                 </div>
-                               
                             </div>
                             <!-- Start Product View -->
                             <div class="row">
                                 <div class="shop__grid__view__wrap">
                                     <div role="tabpanel" id="grid-view" class="single-grid-view tab-pane fade in active clearfix">
                                         <?php
-										foreach($get_product as $list){
-										?>
-										<!-- Start Single Category -->
-										<div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
-											<div class="category">
-												<div class="ht__cat__thumb">
-													<a href="product.php?id=<?php echo $list['id']?>">
-														<img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="product images">
-													</a>
-												</div>
-												
-												<div class="fr__product__inner">
-													<h4><a href="product-details.html"><?php echo $list['name']?></a></h4>
-													<ul class="fr__pro__prize">
-														<li class="old__prize"><?php echo $list['mrp']?></li>
-														<li><?php echo $list['price']?></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-										<?php } ?>
+										foreach($get_product as $list2){
+                                    ?>
+                                        <!-- Start Single Category -->
+                                        <div class="card_p col-md-4 col-lg-3 col-sm-4 col-xs-12">
+                                            <div class="category">
+                                                <div class="ht__cat__thumb">
+                                                    <a href="product.php?id=<?php echo $list2['id']?>">
+                                                        <img style="height: 10rem;" src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list2['image']?>" alt="product images">
+                                                    </a>
+                                                </div>
+                                                
+                                                <div class="fr__product__inner">
+                                                    <h4><a href="product-details.html"><?php echo $list2['name']?></a></h4>
+                                                    <ul class="fr__pro__prize">
+                                                        <li class="old__prize"><?php echo $list2['mrp']?></li>
+                                                        <li><?php echo $list2['price']?></li>
+                                                    </ul>
+                                                   
+                                                </div>
+                                                 <div style="display: flex;flex-direction: row-reverse;margin: 10px 0;"><a href="get_link.php?id=<?php echo $list2['id']?>" class="btn btn-primary" target="_blank">Enroll Now</a></div>
+                                            </div>
+                                        </div>
+                                        <!-- End Single Category -->
+
+                                <?php } ?>
                                     </div>
 							   </div>
                             </div>

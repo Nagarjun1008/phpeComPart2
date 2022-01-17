@@ -68,7 +68,7 @@ if(isset($_GET['id'])){
                                     <li class="old__prize"><?php echo $get_product['0']['mrp']?></li>
                                     <li><?php echo $get_product['0']['price']?></li>
                                 </ul>
-                                <p class="pro__info"><?php echo $get_product['0']['short_desc']?></p>
+                                <p class="pro__info"><?php echo $get_product['0']['product_link']?></p>
                                 <div class="ht__pro__desc">
                                     <div class="sin__desc">
                                         <p><span>Availability:</span> In Stock</p>

@@ -7,7 +7,7 @@ $price='';
 $ex_d_t='';
 $qty='';
 $image='';
-$short_desc	='';
+$product_link	='';
 $description	='';
 $meta_title	='';	
 $meta_description	='';
@@ -28,7 +28,7 @@ if(isset($_GET['id']) && $_GET['id']!=''){
 		$price=$row['price'];
 		$ex_d_t=$row['ex_d_t'];
 		$qty=$row['qty'];
-		$short_desc=$row['short_desc'];
+		$product_link=$row['product_link'];
 		$description=$row['description'];
 		$meta_title=$row['meta_title'];
 		$meta_desc=$row['meta_desc'];
@@ -46,7 +46,7 @@ if(isset($_POST['submit'])){
 	$price=get_safe_value($con,$_POST['price']);
 	$ex_d_t=get_safe_value($con,$_POST['ex_d_t']);
 	$qty=get_safe_value($con,$_POST['qty']);
-	$short_desc=get_safe_value($con,$_POST['short_desc']);
+	$product_link=get_safe_value($con,$_POST['product_link']);
 	$description=get_safe_value($con,$_POST['description']);
 	$meta_title=get_safe_value($con,$_POST['meta_title']);
 	$meta_desc=get_safe_value($con,$_POST['meta_desc']);
@@ -85,15 +85,15 @@ if(isset($_POST['submit'])){
 				$image=rand(111111111,999999999).'_'.$_FILES['image']['name'];
 				
 				move_uploaded_file($_FILES['image']['tmp_name'],PRODUCT_IMAGE_SERVER_PATH.$image);
-				$update_sql="update product set categories_id='$categories_id',name='$name',mrp='$mrp',price='$price',ex_d_t='$ex_d_t',qty='$qty',short_desc='$short_desc',description='$description',meta_title='$meta_title',meta_desc='$meta_desc',meta_keyword='$meta_keyword',image='$image' where id='$id'";
+				$update_sql="update product set categories_id='$categories_id',name='$name',mrp='$mrp',price='$price',ex_d_t='$ex_d_t',qty='$qty',product_link='$product_link',description='$description',meta_title='$meta_title',meta_desc='$meta_desc',meta_keyword='$meta_keyword',image='$image' where id='$id'";
 			}else{
-				$update_sql="update product set categories_id='$categories_id',name='$name',mrp='$mrp',price='$price',ex_d_t='$ex_d_t',qty='$qty',short_desc='$short_desc',description='$description',meta_title='$meta_title',meta_desc='$meta_desc',meta_keyword='$meta_keyword' where id='$id'";
+				$update_sql="update product set categories_id='$categories_id',name='$name',mrp='$mrp',price='$price',ex_d_t='$ex_d_t',qty='$qty',product_link='$product_link',description='$description',meta_title='$meta_title',meta_desc='$meta_desc',meta_keyword='$meta_keyword' where id='$id'";
 			}
 			mysqli_query($con,$update_sql);
 		}else{
 			$image=rand(111111111,999999999).'_'.$_FILES['image']['name'];
 			move_uploaded_file($_FILES['image']['tmp_name'],PRODUCT_IMAGE_SERVER_PATH.$image);
-			mysqli_query($con,"insert into product(categories_id,name,mrp,price,ex_d_t,qty,short_desc,description,meta_title,meta_desc,meta_keyword,status,image) values('$categories_id','$name','$mrp','$price','$ex_d_t','$qty','$short_desc','$description','$meta_title','$meta_desc','$meta_keyword',1,'$image')");
+			mysqli_query($con,"insert into product(categories_id,name,mrp,price,ex_d_t,qty,product_link,description,meta_title,meta_desc,meta_keyword,status,image) values('$categories_id','$name','$mrp','$price','$ex_d_t','$qty','$product_link','$description','$meta_title','$meta_desc','$meta_keyword',1,'$image')");
 
 			// Adding product count to categories
 			mysqli_query($con,"UPDATE `categories` SET `products` = `products`+ 1 WHERE `id` = '$categories_id'");
@@ -155,21 +155,21 @@ if(isset($_POST['submit'])){
 								
 								<div class="form-group">
 									<label for="categories" class=" form-control-label">Image</label>
-									<input type="file" name="image" class="form-control" <?php echo  $image_required?>>
+									<input type="file" name="image" class="form-control" value="<?php echo  $image_required?>" >
 								</div>
 								
 								<div class="form-group">
-									<label for="categories" class=" form-control-label">Short Description</label>
-									<textarea name="short_desc" placeholder="Enter product short description" class="form-control"><?php echo $short_desc?></textarea>
+									<label for="categories" class="form-control-label">Product Link</label>
+									<input type="url" name="product_link" placeholder="Enter product URL" class="form-control" required value="<?php echo $product_link?>" >
 								</div>
 								
 								<div class="form-group">
-									<label for="categories" class=" form-control-label">Description</label>
+									<label for="categories" class="form-control-label">Description</label>
 									<textarea name="description" placeholder="Enter product description" class="form-control"><?php echo $description?></textarea>
 								</div>
 								
 								<div class="form-group">
-									<label for="categories" class=" form-control-label">Meta Title</label>
+									<label for="categories" class="form-control-label">Meta Title</label>
 									<textarea name="meta_title" placeholder="Enter product meta title" class="form-control"><?php echo $meta_title?></textarea>
 								</div>
 								

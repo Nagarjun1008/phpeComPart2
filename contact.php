@@ -23,11 +23,11 @@ require('top.php');
         <section class="htc__contact__area ptb--100 bg__white">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
+                    <!-- <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
                         <div class="map-contacts--2">
                             <div id="googleMap"></div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
                         <h2 class="title__line--6">CONTACT US</h2>
                         <div class="address">

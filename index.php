@@ -97,7 +97,7 @@
                                                     </ul>
                                                    
                                                 </div>
-                                                 <div style="display: flex;flex-direction: row-reverse;margin: 10px 0;"><a href="product.php?id=<?php echo $list2['id']?>" class="btn btn-primary">Enroll Now</a></div>
+                                                 <div style="display: flex;flex-direction: row-reverse;margin: 10px 0;"><a href="get_link.php?id=<?php echo $list2['id']?>" class="btn btn-primary" target="_blank">Enroll Now</a></div>
                                             </div>
                                         </div>
                                         <!-- End Single Category -->

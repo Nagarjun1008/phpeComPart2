@@ -36,7 +36,7 @@ if(isset($_POST['submit'])){
 		if(isset($_GET['id']) && $_GET['id']!=''){
 			mysqli_query($con,"update categories set categories='$categories' where id='$id'");
 		}else{
-			mysqli_query($con,"insert into categories(categories,status) values('$categories','1')");
+			mysqli_query($con,"INSERT INTO `categories`(`categories`,`status`) VALUES('$categories','1')");
 		}
 		header('location:categories.php');
 		die();

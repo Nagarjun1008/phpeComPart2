@@ -1,4 +1,12 @@
 <?php 
+
+// if(isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN']!=''){
+//   $user_id = $_SESSION['user_id'];
+// }else{
+// 	header('location:login.php');
+// 	die();
+// }
+
 require('top.php');
 if(isset($_GET['id']) && $_GET['id']!=''){
 	$cat_id=mysqli_real_escape_string($con,$_GET['id']);

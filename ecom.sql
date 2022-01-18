@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2022 at 05:21 PM
+-- Generation Time: Jan 18, 2022 at 02:17 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -148,6 +148,48 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `password`, `email`, `mobile`, `added_on`) VALUES
 (1, 'Vishal Gupta', '', 'vishal@gmail.com', '1234567890', '2020-01-14 00:00:00');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_products`
+--
+
+CREATE TABLE `user_products` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `product_name` varchar(200) NOT NULL,
+  `product_desc` text NOT NULL,
+  `product_price` float NOT NULL,
+  `product_mrp` float NOT NULL,
+  `product_image` varchar(255) NOT NULL,
+  `product_ex_d_t` datetime NOT NULL DEFAULT '2000-01-01 00:00:00',
+  `product_qty` int(11) NOT NULL,
+  `product_status` tinyint(4) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `time_stamp` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_products`
+--
+
+INSERT INTO `user_products` (`id`, `user_id`, `product_id`, `product_name`, `product_desc`, `product_price`, `product_mrp`, `product_image`, `product_ex_d_t`, `product_qty`, `product_status`, `category_id`, `time_stamp`) VALUES
+(1, 1, 11, 'YouTube', '', 1, 1, '265905689_1.jpg', '2023-01-01 00:00:00', 1, 1, 36, '2022-01-18 12:52:31'),
+(2, 1, 11, 'YouTube', '', 1, 1, '265905689_1.jpg', '2023-01-01 00:00:00', 1, 1, 36, '2022-01-18 12:52:46'),
+(3, 1, 11, 'YouTube', '', 1, 1, '265905689_1.jpg', '2023-01-01 00:00:00', 1, 1, 36, '2022-01-18 12:52:51'),
+(4, 1, 11, 'YouTube', '', 1, 1, '265905689_1.jpg', '2023-01-01 00:00:00', 1, 1, 36, '2022-01-18 12:53:00'),
+(5, 1, 11, 'YouTube', '', 1, 1, '265905689_1.jpg', '2023-01-01 00:00:00', 1, 1, 36, '2022-01-18 12:53:33'),
+(6, 1, 11, 'YouTube', '', 1, 1, '265905689_1.jpg', '2023-01-01 00:00:00', 1, 1, 36, '2022-01-18 12:53:42'),
+(7, 1, 11, 'YouTube', '', 1, 1, '265905689_1.jpg', '2023-01-01 00:00:00', 1, 1, 36, '2022-01-18 12:54:15'),
+(8, 1, 11, 'YouTube', '', 1, 1, '265905689_1.jpg', '2023-01-01 00:00:00', 1, 1, 36, '2022-01-18 12:54:37'),
+(9, 1, 11, 'YouTube', '', 1, 1, '265905689_1.jpg', '2023-01-01 00:00:00', 1, 1, 36, '2022-01-18 12:55:19'),
+(10, 1, 11, 'YouTube', '', 1, 1, '265905689_1.jpg', '2023-01-01 00:00:00', 1, 1, 36, '2022-01-18 12:55:33'),
+(11, 1, 11, 'YouTube', '', 1, 1, '265905689_1.jpg', '2023-01-01 00:00:00', 1, 1, 36, '2022-01-18 13:00:52'),
+(12, 1, 11, 'YouTube', '', 1, 1, '265905689_1.jpg', '2023-01-01 00:00:00', 1, 1, 36, '2022-01-18 13:01:31'),
+(13, 1, 11, 'YouTube', '', 1, 1, '265905689_1.jpg', '2023-01-01 00:00:00', 1, 1, 36, '2022-01-18 13:01:54'),
+(14, 1, 11, 'YouTube', '', 1, 1, '265905689_1.jpg', '2023-01-01 00:00:00', 1, 1, 36, '2022-01-18 13:02:16');
+
 --
 -- Indexes for dumped tables
 --
@@ -183,6 +225,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user_products`
+--
+ALTER TABLE `user_products`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -196,7 +244,7 @@ ALTER TABLE `admin_users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
@@ -215,6 +263,12 @@ ALTER TABLE `product`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `user_products`
+--
+ALTER TABLE `user_products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

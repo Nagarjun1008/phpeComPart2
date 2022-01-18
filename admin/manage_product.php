@@ -155,7 +155,7 @@ if(isset($_POST['submit'])){
 								
 								<div class="form-group">
 									<label for="categories" class=" form-control-label">Image</label>
-									<input type="file" name="image" class="form-control" value="<?php echo  $image_required?>" >
+									<input type="file" name="image" class="form-control" <?php echo  $image_required?>>
 								</div>
 								
 								<div class="form-group">
